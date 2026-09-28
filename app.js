@@ -23,13 +23,69 @@ const UX_TEXT={
  ar:{hero1:'عملك القادم.',hero2:'يبدأ من هنا.',heroP:'مقطوعات أصلية للفنانين الذين يريدون هوية وتأثيرًا وصوتًا جاهزًا لمشروع حقيقي. استمع إلى العروض واطلب الإيقاع مباشرة.',original:'إيقاعات أصلية',personalLic:'ترخيص شخصي',directDelivery:'تسليم مباشر',originalText:'يتم تقديم كل إيقاع كمقطوعة أصلية من Rodrigo Hits.',directText:'لا يوجد دفع عبر سوق وسيط. تتواصل مباشرة مع Rodrigo.',flexible:'مرن',flexibleText:'يتم الاتفاق على الترخيص والتسليم بما يناسب مشروعك.',requestSent:'تم تجهيز الطلب. سيفتح تطبيق البريد لإكمال الإرسال.',requestPreparing:'جارٍ تجهيز الطلب…',position:'إيقاع'}
 };
 Object.keys(UX_TEXT).forEach(k=>Object.assign(LANGS[k],UX_TEXT[k]));
-const DATA_LABELS={Dark:{it:'Dark',en:'Dark',es:'Oscuro',fr:'Sombre',de:'Dunkel',pt:'Dark',zh:'暗黑',ja:'ダーク',ko:'다크',ar:'داكن'},Romantic:{it:'Romantico',en:'Romantic',es:'Romántico',fr:'Romantique',de:'Romantisch',pt:'Romântico',zh:'浪漫',ja:'ロマンチック',ko:'로맨틱',ar:'رومانسي'},Energetic:{it:'Energico',en:'Energetic',es:'Enérgico',fr:'Énergique',de:'Energisch',pt:'Energético',zh:'活力',ja:'エネルギッシュ',ko:'에너지',ar:'حماسي'},Chill:{it:'Chill',en:'Chill',es:'Chill',fr:'Chill',de:'Chill',pt:'Chill',zh:'舒缓',ja:'チル',ko:'칠',ar:'هادئ'},Melodic:{it:'Melodico',en:'Melodic',es:'Melódico',fr:'Mélodique',de:'Melodisch',pt:'Melódico',zh:'旋律',ja:'メロディック',ko:'멜로딕',ar:'لحني'},Club:{it:'Club',en:'Club',es:'Club',fr:'Club',de:'Club',pt:'Club',zh:'俱乐部',ja:'クラブ',ko:'클럽',ar:'نادي'}};
-const LANG_GENRE={it:{'Dark Trap':'Dark Trap','Latin':'Latin','Brazilian Funk':'Brazilian Funk','Afro House':'Afro House','Reggaeton':'Reggaeton','Dembow':'Dembow','R&B':'R&B','Urban':'Urban'},en:{},es:{'Dark Trap':'Trap oscuro','Latin':'Latino','Brazilian Funk':'Funk brasileño','Afro House':'Afro House','Reggaeton':'Reguetón','Dembow':'Dembow','R&B':'R&B','Urban':'Urbano'},fr:{'Dark Trap':'Trap sombre','Latin':'Latin','Brazilian Funk':'Funk brésilien','Afro House':'Afro House','Reggaeton':'Reggaeton','Dembow':'Dembow','R&B':'R&B','Urban':'Urbain'},de:{'Dark Trap':'Dark Trap','Latin':'Latin','Brazilian Funk':'Brasilianischer Funk','Afro House':'Afro House','Reggaeton':'Reggaeton','Dembow':'Dembow','R&B':'R&B','Urban':'Urban'},pt:{'Dark Trap':'Dark Trap','Latin':'Latino','Brazilian Funk':'Funk brasileiro','Afro House':'Afro House','Reggaeton':'Reggaeton','Dembow':'Dembow','R&B':'R&B','Urban':'Urbano'},zh:{'Dark Trap':'暗黑 Trap','Latin':'拉丁','Brazilian Funk':'巴西 Funk','Afro House':'Afro House','Reggaeton':'Reggaeton','Dembow':'Dembow','R&B':'R&B','Urban':'Urban'},ja:{'Dark Trap':'ダークトラップ','Latin':'ラテン','Brazilian Funk':'ブラジリアンファンク','Afro House':'アフロハウス','Reggaeton':'レゲトン','Dembow':'デンボウ','R&B':'R&B','Urban':'アーバン'},ko:{'Dark Trap':'다크 트랩','Latin':'라틴','Brazilian Funk':'브라질리언 펑크','Afro House':'아프로 하우스','Reggaeton':'레게톤','Dembow':'댐보우','R&B':'R&B','Urban':'어반'},ar:{'Dark Trap':'تراب داكن','Latin':'لاتيني','Brazilian Funk':'فانك برازيلي','Afro House':'أفرو هاوس','Reggaeton':'ريغيتون','Dembow':'ديمبو','R&B':'R&B','Urban':'حضري'}};
+const DATA_LABELS={
+  Dark:{it:'Oscuro',en:'Dark',es:'Oscuro',fr:'Sombre',de:'Dunkel',pt:'Sombrio',zh:'暗黑',ja:'ダーク',ko:'다크',ar:'داكن'},
+  Atmospheric:{it:'Atmosferico',en:'Atmospheric',es:'Atmosférico',fr:'Atmosphérique',de:'Atmosphärisch',pt:'Atmosférico',zh:'氛围',ja:'アトモスフェリック',ko:'분위기 있는',ar:'جوي'},
+  Chill:{it:'Rilassato',en:'Chill',es:'Relajado',fr:'Chill',de:'Entspannt',pt:'Relaxado',zh:'舒缓',ja:'チル',ko:'칠',ar:'هادئ'},
+  Club:{it:'Club',en:'Club',es:'Club',fr:'Club',de:'Club',pt:'Club',zh:'俱乐部',ja:'クラブ',ko:'클럽',ar:'نادي'},
+  Dark:{it:'Oscuro',en:'Dark',es:'Oscuro',fr:'Sombre',de:'Dunkel',pt:'Sombrio',zh:'暗黑',ja:'ダーク',ko:'다크',ar:'داكن'},
+  Dreamy:{it:'Sognante',en:'Dreamy',es:'Soñador',fr:'Rêveur',de:'Verträumt',pt:'Sonhador',zh:'梦幻',ja:'ドリーミー',ko:'몽환적',ar:'حالم'},
+  Elegant:{it:'Elegante',en:'Elegant',es:'Elegante',fr:'Élégant',de:'Elegant',pt:'Elegante',zh:'优雅',ja:'エレガント',ko:'우아한',ar:'أنيق'},
+  Emotional:{it:'Emotivo',en:'Emotional',es:'Emotivo',fr:'Émotionnel',de:'Emotional',pt:'Emocional',zh:'情感',ja:'エモーショナル',ko:'감성적',ar:'عاطفي'},
+  Energetic:{it:'Energico',en:'Energetic',es:'Enérgico',fr:'Énergique',de:'Energisch',pt:'Energético',zh:'活力',ja:'エネルギッシュ',ko:'에너지',ar:'حماسي'},
+  Epic:{it:'Epico',en:'Epic',es:'Épico',fr:'Épique',de:'Episch',pt:'Épico',zh:'史诗',ja:'エピック',ko:'에픽',ar:'ملحمي'},
+  'Feel Good':{it:'Positivo',en:'Feel Good',es:'Positivo',fr:'Feel Good',de:'Gute Laune',pt:'Alto astral',zh:'愉悦',ja:'フィールグッド',ko:'기분 좋은',ar:'إيجابي'},
+  Festive:{it:'Festoso',en:'Festive',es:'Festivo',fr:'Festif',de:'Festlich',pt:'Festivo',zh:'节庆',ja:'フェスティブ',ko:'축제 분위기',ar:'احتفالي'},
+  Funky:{it:'Funky',en:'Funky',es:'Funky',fr:'Funky',de:'Funky',pt:'Funky',zh:'Funky',ja:'ファンキー',ko:'펑키',ar:'فانكي'},
+  Happy:{it:'Felice',en:'Happy',es:'Feliz',fr:'Joyeux',de:'Fröhlich',pt:'Feliz',zh:'快乐',ja:'ハッピー',ko:'행복한',ar:'سعيد'},
+  Hard:{it:'Intenso',en:'Hard',es:'Intenso',fr:'Hard',de:'Hart',pt:'Intenso',zh:'强烈',ja:'ハード',ko:'강렬한',ar:'قوي'},
+  Melodic:{it:'Melodico',en:'Melodic',es:'Melódico',fr:'Mélodique',de:'Melódico',pt:'Melódico',zh:'旋律',ja:'メロディック',ko:'멜로딕',ar:'لحني'},
+  Motivational:{it:'Motivazionale',en:'Motivational',es:'Motivacional',fr:'Motivant',de:'Motivierend',pt:'Motivacional',zh:'励志',ja:'モチベーショナル',ko:'동기부여',ar:'تحفيزي'},
+  Mysterious:{it:'Misterioso',en:'Mysterious',es:'Misterioso',fr:'Mystérieux',de:'Mysteriös',pt:'Misterioso',zh:'神秘',ja:'ミステリアス',ko:'신비로운',ar:'غامض'},
+  Hypnotic:{it:'Ipnotico',en:'Hypnotic',es:'Hipnótico',fr:'Hypnotique',de:'Hypnotisch',pt:'Hipnótico',zh:'催眠',ja:'催眠的',ko:'최면적인',ar:'منوّم'},
+  Party:{it:'Festa',en:'Party',es:'Fiesta',fr:'Fête',de:'Party',pt:'Festa',zh:'派对',ja:'パーティー',ko:'파티',ar:'حفلة'},
+  Relaxed:{it:'Distensivo',en:'Relaxed',es:'Relajado',fr:'Détendu',de:'Entspannt',pt:'Relaxado',zh:'轻松',ja:'リラックス',ko:'편안한',ar:'مسترخٍ'},
+  Romantic:{it:'Romantico',en:'Romantic',es:'Romántico',fr:'Romantique',de:'Romantisch',pt:'Romântico',zh:'浪漫',ja:'ロマンチック',ko:'로맨틱',ar:'رومانسي'},
+  Sad:{it:'Triste',en:'Sad',es:'Triste',fr:'Triste',de:'Traurig',pt:'Triste',zh:'悲伤',ja:'サッド',ko:'슬픈',ar:'حزين'},
+  Sensual:{it:'Sensuale',en:'Sensual',es:'Sensual',fr:'Sensuel',de:'Sinnlich',pt:'Sensual',zh:'性感',ja:'セクシー',ko:'관능적인',ar:'حسي'},
+  Smooth:{it:'Morbido',en:'Smooth',es:'Suave',fr:'Doux',de:'Sanft',pt:'Suave',zh:'柔和',ja:'スムース',ko:'부드러운',ar:'ناعم'},
+  Soulful:{it:'Soulful',en:'Soulful',es:'Soulful',fr:'Soul',de:'Soulful',pt:'Soulful',zh:'灵魂感',ja:'ソウルフル',ko:'소울풀',ar:'روحاني'},
+  Street:{it:'Street',en:'Street',es:'Street',fr:'Street',de:'Street',pt:'Street',zh:'街头',ja:'ストリート',ko:'스트리트',ar:'شارعي'},
+  Summer:{it:'Estivo',en:'Summer',es:'Veraniego',fr:'Estival',de:'Sommerlich',pt:'Verão',zh:'夏日',ja:'サマー',ko:'여름',ar:'صيفي'},
+  Tropical:{it:'Tropicale',en:'Tropical',es:'Tropical',fr:'Tropical',de:'Tropisch',pt:'Tropical',zh:'热带',ja:'トロピカル',ko:'트로피컬',ar:'استوائي'},
+  Uplifting:{it:'Coinvolgente',en:'Uplifting',es:'Inspirador',fr:'Entraînant',de:'Aufbauend',pt:'Inspirador',zh:'振奋',ja:'高揚感',ko:'고양되는',ar:'مُبهج'}
+};
+const MOOD_ALIASES={
+  'Oscuro':'Dark','Oscura':'Dark','Sombre':'Dark','Dunkel':'Dark','Sombrio':'Dark','Sombrío':'Dark',
+  'Atmosferico':'Atmospheric','Atmosférico':'Atmospheric','Atmosphérique':'Atmospheric','Atmosphärisch':'Atmospheric',
+  'Rilassato':'Chill','Relajado':'Chill','Détendu':'Relaxed','Entspannt':'Relaxed','Relaxado':'Relaxed',
+  'Romantico':'Romantic','Romántico':'Romantic','Romantique':'Romantic','Romântico':'Romantic',
+  'Energico':'Energetic','Enérgico':'Energetic','Énergique':'Energetic','Energisch':'Energetic','Energético':'Energetic',
+  'Melodico':'Melodic','Melódico':'Melodic','Mélodique':'Melodic','Melódico':'Melodic'
+};
+const LANG_GENRE={
+  it:{'Dark Trap':'Dark Trap','Latin':'Latin','Brazilian Funk':'Funk Brasiliano','Afro House':'Afro House','Reggaeton':'Reggaeton','Dembow':'Dembow','R&B':'R&B','Urban':'Urban','Trap':'Trap','Dance':'Dance','Rap':'Rap','Hip Hop':'Hip Hop','Afroreggaeton':'Afroreggaeton','Deep House':'Deep House','Merengue':'Merengue'},
+  en:{'Dark Trap':'Dark Trap','Latin':'Latin','Brazilian Funk':'Brazilian Funk','Afro House':'Afro House','Reggaeton':'Reggaeton','Dembow':'Dembow','R&B':'R&B','Urban':'Urban','Trap':'Trap','Dance':'Dance','Rap':'Rap','Hip Hop':'Hip Hop','Afroreggaeton':'Afroreggaeton','Deep House':'Deep House','Merengue':'Merengue'},
+  es:{'Dark Trap':'Trap oscuro','Latin':'Latino','Brazilian Funk':'Funk brasileño','Afro House':'Afro House','Reggaeton':'Reguetón','Dembow':'Dembow','R&B':'R&B','Urban':'Urbano','Trap':'Trap','Dance':'Dance','Rap':'Rap','Hip Hop':'Hip Hop','Afroreggaeton':'Afroreguetón','Deep House':'Deep House','Merengue':'Merengue'},
+  fr:{'Dark Trap':'Trap sombre','Latin':'Latin','Brazilian Funk':'Funk brésilien','Afro House':'Afro House','Reggaeton':'Reggaeton','Dembow':'Dembow','R&B':'R&B','Urban':'Urbain','Trap':'Trap','Dance':'Dance','Rap':'Rap','Hip Hop':'Hip-Hop','Afroreggaeton':'Afroreggaeton','Deep House':'Deep House','Merengue':'Merengue'},
+  de:{'Dark Trap':'Dark Trap','Latin':'Latin','Brazilian Funk':'Brasilianischer Funk','Afro House':'Afro House','Reggaeton':'Reggaeton','Dembow':'Dembow','R&B':'R&B','Urban':'Urban','Trap':'Trap','Dance':'Dance','Rap':'Rap','Hip Hop':'Hip-Hop','Afroreggaeton':'Afroreggaeton','Deep House':'Deep House','Merengue':'Merengue'},
+  pt:{'Dark Trap':'Dark Trap','Latin':'Latino','Brazilian Funk':'Funk brasileiro','Afro House':'Afro House','Reggaeton':'Reggaeton','Dembow':'Dembow','R&B':'R&B','Urban':'Urbano','Trap':'Trap','Dance':'Dance','Rap':'Rap','Hip Hop':'Hip Hop','Afroreggaeton':'Afroreggaeton','Deep House':'Deep House','Merengue':'Merengue'},
+  zh:{'Dark Trap':'暗黑 Trap','Latin':'拉丁','Brazilian Funk':'巴西 Funk','Afro House':'Afro House','Reggaeton':'雷鬼顿','Dembow':'Dembow','R&B':'R&B','Urban':'都市','Trap':'陷阱音乐','Dance':'舞曲','Rap':'说唱','Hip Hop':'嘻哈','Afroreggaeton':'非洲雷鬼顿','Deep House':'深度浩室','Merengue':'梅伦格'},
+  ja:{'Dark Trap':'ダークトラップ','Latin':'ラテン','Brazilian Funk':'ブラジリアンファンク','Afro House':'アフロハウス','Reggaeton':'レゲトン','Dembow':'デンボウ','R&B':'R&B','Urban':'アーバン','Trap':'トラップ','Dance':'ダンス','Rap':'ラップ','Hip Hop':'ヒップホップ','Afroreggaeton':'アフロレゲトン','Deep House':'ディープハウス','Merengue':'メレンゲ'},
+  ko:{'Dark Trap':'다크 트랩','Latin':'라틴','Brazilian Funk':'브라질리언 펑크','Afro House':'아프로 하우스','Reggaeton':'레게톤','Dembow':'댐보우','R&B':'R&B','Urban':'어반','Trap':'트랩','Dance':'댄스','Rap':'랩','Hip Hop':'힙합','Afroreggaeton':'아프로레게톤','Deep House':'딥 하우스','Merengue':'메렝게'},
+  ar:{'Dark Trap':'تراب داكن','Latin':'لاتيني','Brazilian Funk':'فانك برازيلي','Afro House':'أفرو هاوس','Reggaeton':'ريغيتون','Dembow':'ديمبو','R&B':'R&B','Urban':'حضري','Trap':'تراب','Dance':'دانس','Rap':'راب','Hip Hop':'هيب هوب','Afroreggaeton':'أفرو ريغيتون','Deep House':'ديب هاوس','Merengue':'ميرينغي'}
+};
+const normLabel=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
+const MOOD_CANONICAL={};Object.keys(DATA_LABELS).forEach(k=>{MOOD_CANONICAL[normLabel(k)]=k;Object.values(DATA_LABELS[k]).forEach(v=>{MOOD_CANONICAL[normLabel(v)]=k})});Object.entries(MOOD_ALIASES).forEach(([a,k])=>MOOD_CANONICAL[normLabel(a)]=k);
+const GENRE_CANONICAL={};Object.values(LANG_GENRE).forEach(map=>Object.entries(map).forEach(([k,v])=>{GENRE_CANONICAL[normLabel(k)]=k;GENRE_CANONICAL[normLabel(v)]=k}));
+function canonicalMood(v){return MOOD_CANONICAL[normLabel(v)]||v}
+function canonicalGenre(v){return GENRE_CANONICAL[normLabel(v)]||v}
+function dl(obj){if(typeof obj==='string'){const k=canonicalMood(obj);return DATA_LABELS[k]?.[currentLang]||obj}return obj?.[currentLang]||obj?.en||obj||''}
+function gl(g){const k=canonicalGenre(g);return LANG_GENRE[currentLang]?.[k]||g}
 let currentLang=localStorage.getItem('rh-language')||'en';
-Object.values(LANGS).forEach(x=>{x.showing=x.showing||'Showing';x.of=x.of||'of'}); LANGS.it.beatOne='BEAT';LANGS.it.beatMany='BEAT';LANGS.en.beatOne='BEAT';LANGS.en.beatMany='BEATS';LANGS.es.beatOne='BEAT';LANGS.es.beatMany='BEATS';LANGS.fr.beatOne='BEAT';LANGS.fr.beatMany='BEATS';LANGS.de.beatOne='BEAT';LANGS.de.beatMany='BEATS';LANGS.pt.beatOne='BEAT';LANGS.pt.beatMany='BEATS';LANGS.zh.beatOne='节拍';LANGS.zh.beatMany='节拍';LANGS.ja.beatOne='ビート';LANGS.ja.beatMany='ビート';LANGS.ko.beatOne='비트';LANGS.ko.beatMany='비트';LANGS.ar.beatOne='إيقاع';LANGS.ar.beatMany='إيقاعات'; LANGS.it.showing='Mostrati';LANGS.it.of='di';LANGS.es.showing='Mostrando';LANGS.es.of='de';LANGS.fr.showing='Affichage';LANGS.fr.of='sur';LANGS.de.showing='Zeige';LANGS.de.of='von';LANGS.pt.showing='A mostrar';LANGS.pt.of='de';LANGS.zh.showing='显示';LANGS.zh.of='/';LANGS.ja.showing='表示';LANGS.ja.of='/';LANGS.ko.showing='표시';LANGS.ko.of='/';LANGS.ar.showing='عرض';LANGS.ar.of='من';
+Object.values(LANGS).forEach(x=>{x.showing=x.showing||'Showing';x.of=x.of||'of'}); Object.values(LANGS).forEach(x=>{x.requestBeat=x.requestBeat||x.modalReq||'REQUEST THIS BEAT'}); LANGS.it.beatOne='BEAT';LANGS.it.beatMany='BEAT';LANGS.en.beatOne='BEAT';LANGS.en.beatMany='BEATS';LANGS.es.beatOne='BEAT';LANGS.es.beatMany='BEATS';LANGS.fr.beatOne='BEAT';LANGS.fr.beatMany='BEATS';LANGS.de.beatOne='BEAT';LANGS.de.beatMany='BEATS';LANGS.pt.beatOne='BEAT';LANGS.pt.beatMany='BEATS';LANGS.zh.beatOne='节拍';LANGS.zh.beatMany='节拍';LANGS.ja.beatOne='ビート';LANGS.ja.beatMany='ビート';LANGS.ko.beatOne='비트';LANGS.ko.beatMany='비트';LANGS.ar.beatOne='إيقاع';LANGS.ar.beatMany='إيقاعات'; LANGS.it.showing='Mostrati';LANGS.it.of='di';LANGS.es.showing='Mostrando';LANGS.es.of='de';LANGS.fr.showing='Affichage';LANGS.fr.of='sur';LANGS.de.showing='Zeige';LANGS.de.of='von';LANGS.pt.showing='A mostrar';LANGS.pt.of='de';LANGS.zh.showing='显示';LANGS.zh.of='/';LANGS.ja.showing='表示';LANGS.ja.of='/';LANGS.ko.showing='표시';LANGS.ko.of='/';LANGS.ar.showing='عرض';LANGS.ar.of='من';
 function t(k){return (LANGS[currentLang]||LANGS.en)[k]||LANGS.en[k]||k}
-function dl(obj){return obj?.[currentLang]||obj?.en||obj||''}
-function gl(g){return LANG_GENRE[currentLang]?.[g]||g}
+function gl(g){const k=canonicalGenre(g);return LANG_GENRE[currentLang]?.[k]||g}
 
 const STORE_EMAIL="rhinstrumental@gmail.com";
 const grid=document.querySelector("#grid"),count=document.querySelector("#count"),search=document.querySelector("#search"),genre=document.querySelector("#genre"),mood=document.querySelector("#mood"),sort=document.querySelector("#sort"),bpmMin=document.querySelector("#bpm-min"),bpmMax=document.querySelector("#bpm-max"),clearFilters=document.querySelector("#clear-filters"),empty=document.querySelector("#empty"),beatSelect=document.querySelector("#beat"),pagination=document.querySelector("#pagination"),pagePrev=document.querySelector("#page-prev"),pageNext=document.querySelector("#page-next"),pageNumbers=document.querySelector("#page-numbers");
@@ -54,13 +110,16 @@ function initBeatStore(){
 
 let favorites=new Set(JSON.parse(localStorage.getItem("rh-favorites")||"[]"));
 
-[...new Set(BEATS.map(b=>b.genre))].sort().forEach(g=>genre.insertAdjacentHTML("beforeend",`<option value="${g}">${g}</option>`));
-BEATS.forEach(b=>beatSelect.insertAdjacentHTML("beforeend",`<option value="${b.id}">${b.name} — ${b.genre} · ${b.bpm} BPM</option>`));
+const genres=[...new Map(BEATS.map(b=>[canonicalGenre(b.genre),b.genre])).values()].sort((a,b)=>String(a).localeCompare(String(b)));
+genres.forEach(g=>genre.insertAdjacentHTML("beforeend",`<option value="${g}">${gl(g)}</option>`));
+const moods=[...new Map(BEATS.map(b=>[canonicalMood(b.mood),b.mood])).values()].sort((a,b)=>String(a).localeCompare(String(b)));
+moods.forEach(m=>mood.insertAdjacentHTML("beforeend",`<option value="${m}">${dl(m)}</option>`));
+BEATS.forEach((b,i)=>{b.index=i;beatSelect.insertAdjacentHTML("beforeend",`<option value="${b.id}">${b.name} — ${gl(b.genre)} · ${b.bpm} BPM</option>`)});
 function norm(s){return String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
 function fmt(sec){if(!isFinite(sec))return"0:00";return `${Math.floor(sec/60)}:${String(Math.floor(sec%60)).padStart(2,"0")}`}
 function getFiltered(){
   const q=norm(search.value),min=bpmMin.value===""?null:Number(bpmMin.value),max=bpmMax.value===""?null:Number(bpmMax.value);
-  let list=BEATS.filter(b=>(!q||norm(`${b.name} ${b.genre} ${b.mood} ${b.bpm}`).includes(q))&&(!genre.value||b.genre===genre.value)&&(!mood.value||b.mood===mood.value)&&(min===null||b.bpm>=min)&&(max===null||b.bpm<=max));
+  let list=BEATS.filter(b=>(!q||norm(`${b.name} ${b.genre} ${gl(b.genre)} ${b.mood} ${dl(b.mood)} ${b.bpm}`).includes(q))&&(!genre.value||canonicalGenre(b.genre)===canonicalGenre(genre.value))&&(!mood.value||canonicalMood(b.mood)===canonicalMood(mood.value))&&(min===null||b.bpm>=min)&&(max===null||b.bpm<=max));
   if(savedToggle?.classList.contains("active"))list=list.filter(b=>favorites.has(b.id));
   if(sort.value==="low")list.sort((a,b)=>a.bpm-b.bpm);
   if(sort.value==="high")list.sort((a,b)=>b.bpm-a.bpm);
@@ -80,7 +139,7 @@ function render(){
     <div class="cover"><img src="covers/${b.id}.jpg" alt="${b.name} cover" loading="lazy" decoding="async" width="800" height="800"><span class="cover-tag">ORIGINAL</span>${favoriteButton(b)}<strong>${b.name}</strong></div>
     <div class="info"><div class="row"><span class="name">${b.name}</span><span class="meta bpm">${b.bpm} BPM</span></div><div class="meta details">${gl(b.genre)} <i>·</i> ${dl(DATA_LABELS[b.mood])}</div>
       <div class="player" id="player-${b.id}"><button class="play" data-id="${b.id}" aria-label="Play ${b.name}"><span class="play-icon">▶</span><span class="play-label">${t("play")}</span></button><div class="track"><div class="track-bar"><span></span></div><div class="time"><span class="current">0:00</span><span class="duration">0:00</span></div></div></div>
-      <button class="request" data-id="${b.id}">REQUEST THIS BEAT <span>→</span></button>
+      <button class="request" data-id="${b.id}">${t("requestBeat")} <span>→</span></button>
     </div></article>`).join("");
   empty.hidden=total!==0;
   renderPagination(totalPages,total);
@@ -136,7 +195,7 @@ function applyLanguage(){
   q('.hero p',t('heroP'));q('.hero-proof span:nth-child(1)',t('original'));q('.hero-proof span:nth-child(2)',t('personalLic'));q('.hero-proof span:nth-child(3)',t('directDelivery'));q('.hero-actions .btn',t('explore')+' ↓');q('.hero-actions .text-link',t('howBtn')+' →');q('.hero-note strong',t('noCheckout'));q('.hero-note span',t('personal'));
   q('.section-head .eyebrow',t('catalog'));q('.section-head h2',t('choose'));q('#search',t('search'));
   genre.options[0].textContent=t('allGenres');mood.options[0].textContent=t('allMoods');bpmMin.placeholder=t('min');bpmMax.placeholder=t('max');
-  const go=[...genre.options].slice(1);go.forEach(o=>o.textContent=gl(o.value));const mo=[...mood.options].slice(1);mo.forEach(o=>o.textContent=dl(DATA_LABELS[o.value]));
+  const go=[...genre.options].slice(1);go.forEach(o=>o.textContent=gl(o.value));const mo=[...mood.options].slice(1);mo.forEach(o=>o.textContent=dl(o.value));
   const so=[['new',t('newest')],['low',t('low')],['high',t('high')],['az',t('az')]];[...sort.options].forEach((o,i)=>{if(so[i])o.textContent=so[i][1]});q('#clear-filters',t('clear')+' ×');
   q('.how-title .eyebrow',t('simple'));const ht=document.querySelector('.how-title h2');if(ht)ht.innerHTML=t('fromIdea').replace('\n','<br>');q('.how-title p',t('howP'));q('.trust-strip div:nth-child(1) strong',t('original'));q('.trust-strip div:nth-child(1) span',t('originalText'));q('.trust-strip div:nth-child(2) strong',t('directDelivery'));q('.trust-strip div:nth-child(2) span',t('directText'));q('.trust-strip div:nth-child(3) strong',t('flexible'));q('.trust-strip div:nth-child(3) span',t('flexibleText'));
   const arts=document.querySelectorAll('.steps article');if(arts.length>=3){q('.steps article:nth-child(1) .step-top span',t('listen'));q('.steps article:nth-child(1) h3',t('find'));q('.steps article:nth-child(1) p',t('listenP'));q('.steps article:nth-child(2) .step-top span',t('request'));q('.steps article:nth-child(2) h3',t('sendReq'));q('.steps article:nth-child(2) p',t('requestP'));q('.steps article:nth-child(3) .step-top span',t('connect'));q('.steps article:nth-child(3) h3',t('talk'));q('.steps article:nth-child(3) p',t('talkP'));}
