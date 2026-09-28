@@ -35,7 +35,23 @@ const STORE_EMAIL="rhinstrumental@gmail.com";
 const grid=document.querySelector("#grid"),count=document.querySelector("#count"),search=document.querySelector("#search"),genre=document.querySelector("#genre"),mood=document.querySelector("#mood"),sort=document.querySelector("#sort"),bpmMin=document.querySelector("#bpm-min"),bpmMax=document.querySelector("#bpm-max"),clearFilters=document.querySelector("#clear-filters"),empty=document.querySelector("#empty"),beatSelect=document.querySelector("#beat"),pagination=document.querySelector("#pagination"),pagePrev=document.querySelector("#page-prev"),pageNext=document.querySelector("#page-next"),pageNumbers=document.querySelector("#page-numbers");
 const savedToggle=document.querySelector("#saved-toggle"),viewGrid=document.querySelector("#view-grid"),viewList=document.querySelector("#view-list"),resultsSummary=document.querySelector("#results-summary"),backTop=document.querySelector("#back-top");
 let audio=null,playingId=null,progressTimer=null,currentPage=1,viewMode=localStorage.getItem("rh-view")||"grid";
+let BEATS=[];
 const BEATS_PER_PAGE=12;
+
+fetch("beats.json", {cache:"no-cache"})
+  .then(r=>{ if(!r.ok) throw new Error("beats.json not found"); return r.json(); })
+  .then(data=>{
+    BEATS=Array.isArray(data)?data:[];
+    initBeatStore();
+  })
+  .catch(err=>{
+    console.error(err);
+    const grid=document.querySelector("#grid");
+    if(grid) grid.innerHTML='<div class="empty-state">Catalog unavailable. Please check beats.json.</div>';
+  });
+
+function initBeatStore(){
+
 let favorites=new Set(JSON.parse(localStorage.getItem("rh-favorites")||"[]"));
 
 [...new Set(BEATS.map(b=>b.genre))].sort().forEach(g=>genre.insertAdjacentHTML("beforeend",`<option value="${g}">${g}</option>`));
@@ -140,3 +156,4 @@ const languageSelect=document.querySelector('#language-select');
 languageSelect?.addEventListener('change',()=>{currentLang=languageSelect.value;localStorage.setItem('rh-language',currentLang);applyLanguage()});
 if(viewMode==="list"){viewList?.classList.add("active");viewGrid?.classList.remove("active")}else{viewGrid?.classList.add("active");viewList?.classList.remove("active")}
 updateFavoriteCount();applyLanguage();
+}
