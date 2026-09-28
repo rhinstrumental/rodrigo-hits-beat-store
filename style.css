@@ -86,3 +86,14 @@
 @media(max-width:700px){
   .modal-player{margin-bottom:24px}
 }
+
+/* CATALOG PAGINATION */
+.pagination{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:45px;padding-top:25px;border-top:1px solid var(--line)}
+.pagination button{border:1px solid var(--line);background:#0b0b0b;color:#aaa;padding:12px 16px;font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;cursor:pointer;transition:.2s ease}
+.pagination button:hover:not(:disabled){background:#e50914;border-color:#e50914;color:#fff}
+.pagination button:disabled{opacity:.3;cursor:not-allowed}
+.page-numbers{display:flex;align-items:center;gap:6px}
+.page-number{min-width:38px!important;padding:11px 10px!important;text-align:center}
+.page-number.active{background:#e50914!important;border-color:#e50914!important;color:#fff!important}
+@media(max-width:560px){.pagination{gap:8px;margin-top:30px}.pagination button{padding:11px 10px;font-size:9px}.page-number{min-width:34px!important;padding:10px 7px!important}.page-numbers{gap:4px}}
+.page-dots{color:#666;font-size:12px;padding:0 3px;user-select:none}
