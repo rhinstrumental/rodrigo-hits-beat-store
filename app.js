@@ -1,5 +1,5 @@
 const STORE_EMAIL="rhinstrumental@gmail.com";
-const grid=document.querySelector("#grid"),count=document.querySelector("#count"),search=document.querySelector("#search"),genre=document.querySelector("#genre"),mood=document.querySelector("#mood"),sort=document.querySelector("#sort"),empty=document.querySelector("#empty"),beatSelect=document.querySelector("#beat");
+const grid=document.querySelector("#grid"),count=document.querySelector("#count"),search=document.querySelector("#search"),genre=document.querySelector("#genre"),mood=document.querySelector("#mood"),sort=document.querySelector("#sort"),bpmMin=document.querySelector("#bpm-min"),bpmMax=document.querySelector("#bpm-max"),clearFilters=document.querySelector("#clear-filters"),empty=document.querySelector("#empty"),beatSelect=document.querySelector("#beat");
 let audio=null,playingId=null,progressTimer=null;
 
 [...new Set(BEATS.map(b=>b.genre))].sort().forEach(g=>genre.insertAdjacentHTML("beforeend",`<option value="${g}">${g}</option>`));
@@ -7,7 +7,9 @@ BEATS.forEach(b=>beatSelect.insertAdjacentHTML("beforeend",`<option value="${b.i
 function norm(s){return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
 function render(){
   const q=norm(search.value);
-  let list=BEATS.filter(b=>(!q||norm(`${b.name} ${b.genre} ${b.mood} ${b.bpm}`).includes(q))&&(!genre.value||b.genre===genre.value)&&(!mood.value||b.mood===mood.value));
+  const min=bpmMin.value===""?null:Number(bpmMin.value);
+  const max=bpmMax.value===""?null:Number(bpmMax.value);
+  let list=BEATS.filter(b=>(!q||norm(`${b.name} ${b.genre} ${b.mood} ${b.bpm}`).includes(q))&&(!genre.value||b.genre===genre.value)&&(!mood.value||b.mood===mood.value)&&(min===null||b.bpm>=min)&&(max===null||b.bpm<=max));
   if(sort.value==="low")list.sort((a,b)=>a.bpm-b.bpm);
   if(sort.value==="high")list.sort((a,b)=>b.bpm-a.bpm);
   if(sort.value==="az")list.sort((a,b)=>a.name.localeCompare(b.name));
@@ -135,6 +137,8 @@ document.querySelector("#modal-request").onclick=()=>{
 };
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&beatModal.classList.contains("open"))closeBeatModal()});
 
-[search,genre,mood,sort].forEach(x=>x.addEventListener(x.tagName==="INPUT"?"input":"change",render));
+[search,bpmMin,bpmMax].forEach(x=>x.addEventListener("input",render));
+[genre,mood,sort].forEach(x=>x.addEventListener("change",render));
+clearFilters.onclick=()=>{search.value="";genre.value="";mood.value="";bpmMin.value="";bpmMax.value="";sort.value="new";render();};
 document.querySelector("#form").onsubmit=e=>{e.preventDefault();const b=BEATS.find(x=>x.id===beatSelect.value),subject=encodeURIComponent(`Beat Request — ${b?b.name:beatSelect.value}`),body=encodeURIComponent(`Artist / Name: ${document.querySelector("#name").value}\nEmail: ${document.querySelector("#email").value}\nBeat: ${b?b.name+" ("+b.id+")":beatSelect.value}\n\nMessage:\n${document.querySelector("#message").value}`);location.href=`mailto:${STORE_EMAIL}?subject=${subject}&body=${body}`};
 render();
