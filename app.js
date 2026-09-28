@@ -14,7 +14,11 @@ function render(){
   if(sort.value==="new")list.sort((a,b)=>(a.index||0)-(b.index||0));
   count.textContent=`${list.length} ${list.length===1?"BEAT":"BEATS"}`;
   grid.innerHTML=list.map(b=>`<article class="card" data-beat="${b.id}">
-    <div class="cover" style="--a:${b.colors[0]};--b:${b.colors[1]}"><span class="id">${b.id}</span><span class="cover-tag">ORIGINAL</span><strong>${b.name}</strong></div>
+    <div class="cover" style="background-image:url('covers/${b.id}.jpg');">
+  <span class="id">${b.id}</span>
+  <span class="cover-tag">ORIGINAL</span>
+  <strong>${b.name}</strong>
+</div>
     <div class="info">
       <div class="row"><span class="name">${b.name}</span><span class="meta bpm">${b.bpm} BPM</span></div>
       <div class="meta details">${b.genre} <i>·</i> ${b.mood}</div>
