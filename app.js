@@ -44,23 +44,25 @@ function render(){
     document.querySelector("#contact").scrollIntoView({behavior:"smooth",block:"start"});
     setTimeout(()=>document.querySelector("#name")?.focus(),650);
   });
+grid.addEventListener("click",e=>{
+  if(e.target.closest(".play") || e.target.closest(".request")) return;
 
-  document.querySelectorAll(".cover,.name").forEach(el=>el.onclick=()=>{
-    const card=el.closest(".card");
-    const b=BEATS.find(x=>x.id===card.dataset.beat);
-    if(!b)return;
+  const card=e.target.closest(".card");
+  if(!card)return;
 
-    document.querySelector("#modal-cover").style.backgroundImage=`url('covers/${b.id}.jpg')`;
-    document.querySelector("#modal-name").textContent=b.name;
-    document.querySelector("#modal-genre").textContent=b.genre;
-    document.querySelector("#modal-mood").textContent=b.mood;
-    document.querySelector("#modal-bpm").textContent=`${b.bpm} BPM`;
-    document.querySelector("#modal-request").dataset.id=b.id;
+  const b=BEATS.find(x=>x.id===card.dataset.beat);
+  if(!b)return;
 
-    document.querySelector("#beat-modal").classList.add("open");
-    document.querySelector("#beat-modal").setAttribute("aria-hidden","false");
-  });
-}
+  document.querySelector("#modal-cover").style.backgroundImage=`url('covers/${b.id}.jpg')`;
+  document.querySelector("#modal-name").textContent=b.name;
+  document.querySelector("#modal-genre").textContent=b.genre;
+  document.querySelector("#modal-mood").textContent=b.mood;
+  document.querySelector("#modal-bpm").textContent=`${b.bpm} BPM`;
+  document.querySelector("#modal-request").dataset.id=b.id;
+
+  document.querySelector("#beat-modal").classList.add("open");
+  document.querySelector("#beat-modal").setAttribute("aria-hidden","false");
+});
 
 function resetPlayer(){
   clearInterval(progressTimer);progressTimer=null;
