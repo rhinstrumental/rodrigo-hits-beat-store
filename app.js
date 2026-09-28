@@ -29,8 +29,6 @@ function render(){
       <button class="request" data-id="${b.id}">REQUEST THIS BEAT <span>→</span></button>
     </div></article>`).join("");
   empty.hidden=list.length!==0;
-  document.querySelectorAll(".play").forEach(btn=>btn.onclick=()=>play(btn));
-  document.querySelectorAll(".request").forEach(btn=>btn.onclick=()=>{beatSelect.value=btn.dataset.id;document.querySelector("#contact").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>document.querySelector("#name")?.focus(),650)});
 document.querySelectorAll(".cover,.name").forEach(el=>el.onclick=()=>{
   const card=el.closest(".card");
   const b=BEATS.find(x=>x.id===card.dataset.beat);
@@ -46,7 +44,6 @@ document.querySelectorAll(".cover,.name").forEach(el=>el.onclick=()=>{
   document.querySelector("#beat-modal").classList.add("open");
   document.querySelector("#beat-modal").setAttribute("aria-hidden","false");
 });
-}
 function resetPlayer(){
   clearInterval(progressTimer);progressTimer=null;
   document.querySelectorAll(".play").forEach(btn=>{btn.classList.remove("playing");btn.querySelector(".play-icon")&&(btn.querySelector(".play-icon").textContent="▶");btn.querySelector(".play-label")&&(btn.querySelector(".play-label").textContent="PLAY DEMO")});
