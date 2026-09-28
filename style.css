@@ -51,6 +51,10 @@
 
 .beat-modal-close{position:absolute;top:15px;right:15px;z-index:3;width:42px;height:42px;border:1px solid #333;background:rgba(0,0,0,.78);color:#fff;font-size:28px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .beat-modal-close:hover{background:#e50914;border-color:#e50914;}
+.modal-navigation{display:flex;gap:10px;margin:0 0 18px;}
+.modal-navigation button{flex:1;border:1px solid #2b2b2b;background:#0d0d0d;color:#aaa;padding:12px 14px;font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;cursor:pointer;transition:.2s ease;}
+.modal-navigation button:hover:not(:disabled){background:#e50914;border-color:#e50914;color:#fff;}
+.modal-navigation button:disabled{opacity:.3;cursor:not-allowed;}
 @media(max-width:700px){.beat-modal{padding:15px;}.beat-modal-box{grid-template-columns:1fr;max-height:90vh;overflow:auto;}.beat-modal-cover{min-height:300px;}.beat-modal-info{padding:30px;}}
 
 /* MODAL AUDIO PLAYER */

@@ -109,14 +109,7 @@ grid.addEventListener("click",e=>{
   if(!card)return;
   const b=BEATS.find(x=>x.id===card.dataset.beat);
   if(!b)return;
-  document.querySelector("#modal-cover").style.backgroundImage=`url("covers/${b.id}.jpg")`;
-  document.querySelector("#modal-name").textContent=b.name;
-  document.querySelector("#modal-genre").textContent=b.genre;
-  document.querySelector("#modal-mood").textContent=b.mood;
-  document.querySelector("#modal-bpm").textContent=`${b.bpm} BPM`;
-  document.querySelector("#modal-request").dataset.id=b.id;
-  resetModalPlayer();
-  modalBeatId=b.id;
+  showBeatInModal(b.id);
   document.querySelector("#beat-modal").classList.add("open");
   document.querySelector("#beat-modal").setAttribute("aria-hidden","false");
 });
@@ -132,6 +125,8 @@ const modalPlayerLabel=document.querySelector("#modal-player-label");
 const modalProgress=document.querySelector("#modal-progress");
 const modalCurrent=document.querySelector("#modal-current");
 const modalDuration=document.querySelector("#modal-duration");
+const modalPrev=document.querySelector("#modal-prev");
+const modalNext=document.querySelector("#modal-next");
 
 function modalFmt(sec){if(!isFinite(sec))return"0:00";return `${Math.floor(sec/60)}:${String(Math.floor(sec%60)).padStart(2,"0")}`}
 function resetModalPlayer(){
@@ -166,11 +161,52 @@ function startModalPlayer(id){
     resetModalPlayer();
   });
 }
+function getCurrentFilteredBeats(){
+  const q=norm(search.value);
+  const min=bpmMin.value===""?null:Number(bpmMin.value);
+  const max=bpmMax.value===""?null:Number(bpmMax.value);
+  let list=BEATS.filter(b=>(!q||norm(`${b.name} ${b.genre} ${b.mood} ${b.bpm}`).includes(q))&&(!genre.value||b.genre===genre.value)&&(!mood.value||b.mood===mood.value)&&(min===null||b.bpm>=min)&&(max===null||b.bpm<=max));
+  if(sort.value==="low")list.sort((a,b)=>a.bpm-b.bpm);
+  if(sort.value==="high")list.sort((a,b)=>b.bpm-a.bpm);
+  if(sort.value==="az")list.sort((a,b)=>a.name.localeCompare(b.name));
+  if(sort.value==="new")list.sort((a,b)=>(a.index||0)-(b.index||0));
+  return list;
+}
+function updateModalNavigation(){
+  const list=getCurrentFilteredBeats();
+  const index=list.findIndex(b=>b.id===modalBeatId);
+  modalPrev.disabled=index<=0;
+  modalNext.disabled=index<0||index>=list.length-1;
+}
+function showBeatInModal(id){
+  const b=BEATS.find(x=>x.id===id);
+  if(!b)return;
+  document.querySelector("#modal-cover").style.backgroundImage=`url("covers/${b.id}.jpg")`;
+  document.querySelector("#modal-name").textContent=b.name;
+  document.querySelector("#modal-genre").textContent=b.genre;
+  document.querySelector("#modal-mood").textContent=b.mood;
+  document.querySelector("#modal-bpm").textContent=`${b.bpm} BPM`;
+  document.querySelector("#modal-request").dataset.id=b.id;
+  resetModalPlayer();
+  modalBeatId=b.id;
+  updateModalNavigation();
+}
 modalPlay.onclick=()=>{if(modalBeatId)startModalPlayer(modalBeatId)};
 document.querySelector(".modal-track").onclick=e=>{
   if(!modalAudio || !modalAudio.duration)return;
   const r=e.currentTarget.getBoundingClientRect();
   modalAudio.currentTime=((e.clientX-r.left)/r.width)*modalAudio.duration;
+};
+
+modalPrev.onclick=()=>{
+  const list=getCurrentFilteredBeats();
+  const index=list.findIndex(b=>b.id===modalBeatId);
+  if(index>0)showBeatInModal(list[index-1].id);
+};
+modalNext.onclick=()=>{
+  const list=getCurrentFilteredBeats();
+  const index=list.findIndex(b=>b.id===modalBeatId);
+  if(index>=0&&index<list.length-1)showBeatInModal(list[index+1].id);
 };
 
 const beatModal=document.querySelector("#beat-modal");
