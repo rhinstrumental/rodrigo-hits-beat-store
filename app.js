@@ -28,7 +28,7 @@ function render(){
   if(resultsSummary)resultsSummary.textContent=total?`Showing ${start+1}–${Math.min(start+BEATS_PER_PAGE,total)} of ${total}`:"No matching beats";
   grid.classList.toggle("list-view",viewMode==="list");
   grid.innerHTML=pageList.map(b=>`<article class="card" data-beat="${b.id}">
-    <div class="cover" style="background-image:url('covers/${b.id}.jpg');"><span class="id">${b.id}</span><span class="cover-tag">ORIGINAL</span>${favoriteButton(b)}<strong>${b.name}</strong></div>
+    <div class="cover" style="background-image:url('covers/${b.id}.jpg');"><span class="cover-tag">ORIGINAL</span>${favoriteButton(b)}<strong>${b.name}</strong></div>
     <div class="info"><div class="row"><span class="name">${b.name}</span><span class="meta bpm">${b.bpm} BPM</span></div><div class="meta details">${b.genre} <i>·</i> ${b.mood}</div>
       <div class="player" id="player-${b.id}"><button class="play" data-id="${b.id}" aria-label="Play ${b.name}"><span class="play-icon">▶</span><span class="play-label">PLAY DEMO</span></button><div class="track"><div class="track-bar"><span></span></div><div class="time"><span class="current">0:00</span><span class="duration">0:00</span></div></div></div>
       <button class="request" data-id="${b.id}">REQUEST THIS BEAT <span>→</span></button>

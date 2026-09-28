@@ -1,3 +1,1 @@
-# Rodrigo Hits Beat Store V2
-
-Upload index.html, style.css, beats.js and app.js. Keep the audio folder and existing MP3 files.
+Upload these files to the root of the GitHub repository, replacing the existing index.html, style.css and app.js. Keep beats.js and wrangler.toml. The modal is installed outside render() so filtering/sorting cannot remove the player or covers.
