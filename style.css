@@ -42,3 +42,37 @@
 .beat-modal-close{position:absolute;top:15px;right:15px;z-index:3;width:42px;height:42px;border:1px solid #333;background:rgba(0,0,0,.78);color:#fff;font-size:28px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .beat-modal-close:hover{background:#e50914;border-color:#e50914;}
 @media(max-width:700px){.beat-modal{padding:15px;}.beat-modal-box{grid-template-columns:1fr;max-height:90vh;overflow:auto;}.beat-modal-cover{min-height:300px;}.beat-modal-info{padding:30px;}}
+
+/* MODAL AUDIO PLAYER */
+.modal-player{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  width:100%;
+  margin:0 0 30px;
+  padding:16px;
+  background:#111;
+  border:1px solid #242424;
+}
+.modal-play{
+  flex:0 0 52px;
+  width:52px;
+  height:52px;
+  border:1px solid #e50914;
+  background:#e50914;
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+}
+.modal-play:hover{background:#ff1a25;border-color:#ff1a25}
+.modal-player-main{min-width:0;flex:1}
+.modal-player-label{font-size:11px;font-weight:700;letter-spacing:.12em;color:#aaa;margin-bottom:9px}
+.modal-track{height:4px;background:#292929;position:relative;cursor:pointer}
+.modal-track span{display:block;width:0;height:100%;background:#e50914;transition:width .05s linear}
+.modal-time{display:flex;justify-content:space-between;margin-top:7px;font-size:11px;color:#777;font-variant-numeric:tabular-nums}
+@media(max-width:700px){
+  .modal-player{margin-bottom:24px}
+}
