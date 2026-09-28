@@ -4,63 +4,55 @@
     "name": "NOCTURNO",
     "genre": "Dark Trap",
     "bpm": 98,
-    "mood": "Dark",
-    "description": "Dark atmospheric trap instrumental."
+    "mood": "Dark"
   },
   {
     "id": "RH002",
     "name": "UNA FOTO",
     "genre": "Latin",
     "bpm": 96,
-    "mood": "Romantic",
-    "description": "Melodic Latin instrumental with a romantic feel."
+    "mood": "Romantic"
   },
   {
     "id": "RH003",
     "name": "ADRENALINE",
     "genre": "Brazilian Funk",
     "bpm": 128,
-    "mood": "Energetic",
-    "description": "High-energy Brazilian funk instrumental."
+    "mood": "Energetic"
   },
   {
     "id": "RH004",
     "name": "ONE MORE NIGHT",
     "genre": "Afro House",
     "bpm": 122,
-    "mood": "Romantic",
-    "description": "Warm Afro House instrumental with a late-night atmosphere."
+    "mood": "Romantic"
   },
   {
     "id": "RH005",
     "name": "PARECE FACIL",
     "genre": "Reggaeton",
     "bpm": 94,
-    "mood": "Melodic",
-    "description": "Melodic reggaeton instrumental with a smooth urban feel."
+    "mood": "Melodic"
   },
   {
     "id": "RH006",
     "name": "LOCO",
     "genre": "Dembow",
     "bpm": 102,
-    "mood": "Club",
-    "description": "Club-focused dembow instrumental with a strong rhythmic drive."
+    "mood": "Club"
   },
   {
     "id": "RH007",
     "name": "DENTRO",
     "genre": "R&B",
     "bpm": 72,
-    "mood": "Chill",
-    "description": "Slow R&B instrumental with an intimate, atmospheric mood."
+    "mood": "Chill"
   },
   {
     "id": "RH008",
     "name": "RUN IT UP",
     "genre": "Urban",
     "bpm": 100,
-    "mood": "Energetic",
-    "description": "Energetic urban instrumental built for confident performances."
+    "mood": "Energetic"
   }
 ]
