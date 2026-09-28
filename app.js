@@ -31,6 +31,21 @@ function render(){
   empty.hidden=list.length!==0;
   document.querySelectorAll(".play").forEach(btn=>btn.onclick=()=>play(btn));
   document.querySelectorAll(".request").forEach(btn=>btn.onclick=()=>{beatSelect.value=btn.dataset.id;document.querySelector("#contact").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>document.querySelector("#name")?.focus(),650)});
+document.querySelectorAll(".cover,.name").forEach(el=>el.onclick=()=>{
+  const card=el.closest(".card");
+  const b=BEATS.find(x=>x.id===card.dataset.beat);
+  if(!b)return;
+
+  document.querySelector("#modal-cover").style.backgroundImage=`url('covers/${b.id}.jpg')`;
+  document.querySelector("#modal-name").textContent=b.name;
+  document.querySelector("#modal-genre").textContent=b.genre;
+  document.querySelector("#modal-mood").textContent=b.mood;
+  document.querySelector("#modal-bpm").textContent=`${b.bpm} BPM`;
+  document.querySelector("#modal-request").dataset.id=b.id;
+
+  document.querySelector("#beat-modal").classList.add("open");
+  document.querySelector("#beat-modal").setAttribute("aria-hidden","false");
+});
 }
 function resetPlayer(){
   clearInterval(progressTimer);progressTimer=null;
@@ -52,4 +67,31 @@ function play(btn){
 function updateButton(btn){if(!audio)return;const paused=audio.paused;btn.classList.toggle("playing",!paused);btn.querySelector(".play-icon").textContent=paused?"▶":"❚❚";btn.querySelector(".play-label").textContent=paused?"PLAY DEMO":"PLAYING"}
 [search,genre,mood,sort].forEach(x=>x.addEventListener(x.tagName==="INPUT"?"input":"change",render));
 document.querySelector("#form").onsubmit=e=>{e.preventDefault();const b=BEATS.find(x=>x.id===beatSelect.value),subject=encodeURIComponent(`Beat Request — ${b?b.name:beatSelect.value}`),body=encodeURIComponent(`Artist / Name: ${document.querySelector("#name").value}\nEmail: ${document.querySelector("#email").value}\nBeat: ${b?b.name+" ("+b.id+")":beatSelect.value}\n\nMessage:\n${document.querySelector("#message").value}`);location.href=`mailto:${STORE_EMAIL}?subject=${subject}&body=${body}`};
+const modal=document.querySelector("#beat-modal");
+const modalClose=document.querySelector(".beat-modal-close");
+const modalBackdrop=document.querySelector(".beat-modal-backdrop");
+const modalRequest=document.querySelector("#modal-request");
+
+function closeModal(){
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden","true");
+}
+
+modalClose.onclick=closeModal;
+modalBackdrop.onclick=closeModal;
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&modal.classList.contains("open"))closeModal();
+});
+
+modalRequest.onclick=()=>{
+  const id=modalRequest.dataset.id;
+  beatSelect.value=id;
+  closeModal();
+  document.querySelector("#contact").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+  setTimeout(()=>document.querySelector("#name")?.focus(),650);
+};
 render();
