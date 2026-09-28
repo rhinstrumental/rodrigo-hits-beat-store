@@ -61,7 +61,6 @@ grid.addEventListener("click",e=>{
   document.querySelector("#modal-genre").textContent=b.genre;
   document.querySelector("#modal-mood").textContent=b.mood;
   document.querySelector("#modal-bpm").textContent=`${b.bpm} BPM`;
-  document.querySelector("#modal-description").textContent = b.description || `${b.genre} instrumental with a ${b.mood.toLowerCase()} atmosphere, built for artists looking for a clean, original production.`;
   document.querySelector("#modal-request").dataset.id=b.id;
   resetModalPlayer();
   modalBeatId=b.id;
