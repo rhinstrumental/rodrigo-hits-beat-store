@@ -3,28 +3,28 @@
     "id": "RH001",
     "name": "CALOR",
     "genre": "Afroreggaeton",
-    "bpm": 00,
+    "bpm": 10,
     "mood": "Tropical"
   },
   {
     "id": "RH002",
     "name": "TUS MENTIRAS",
     "genre": "Afroreggaeton",
-    "bpm": 00,
+    "bpm": 10,
     "mood": "Sad"
   },
   {
     "id": "RH003",
     "name": "NIGHT-SMOYARD",
     "genre": "RnB",
-    "bpm": 00,
+    "bpm": 10,
     "mood": "Sensual"
   },
   {
     "id": "RH004",
     "name": "ELECTRIC",
     "genre": "RnB",
-    "bpm": 00,
+    "bpm": 10,
     "mood": "Sensual"
   },
   {
