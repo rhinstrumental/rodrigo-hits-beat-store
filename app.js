@@ -184,6 +184,19 @@ viewGrid?.addEventListener("click",()=>{viewMode="grid";localStorage.setItem("rh
 pagePrev.onclick=()=>{if(currentPage>1){currentPage--;render();scrollToStore()}};pageNext.onclick=()=>{const t=Math.ceil(getFiltered().length/BEATS_PER_PAGE);if(currentPage<t){currentPage++;render();scrollToStore()}};backTop?.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
 document.querySelector("#form").onsubmit=async e=>{e.preventDefault();const form=e.currentTarget,b=BEATS.find(x=>x.id===beatSelect.value),name=document.querySelector("#name").value.trim(),email=document.querySelector("#email").value.trim(),message=document.querySelector("#message").value.trim(),subject=`Beat Request — ${b?b.name:beatSelect.value}`;if(requestStatus){requestStatus.hidden=false;requestStatus.textContent=t("requestPreparing");requestStatus.classList.add("show")}const payload={access_key:"4ff322bb-cd83-4db9-a73e-f6a0683b7535",subject,from_name:name,name,email,beat:b?`${b.name} (${b.id})`:beatSelect.value,message};try{const response=await fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(payload)});const result=await response.json().catch(()=>({}));if(!response.ok||!result.success)throw new Error(result.message||"Request failed");if(requestStatus){requestStatus.textContent=t("requestSent");requestStatus.classList.add("show")}form.reset()}catch(error){console.error(error);if(requestStatus){requestStatus.hidden=false;requestStatus.textContent="Request error. Please try again.";requestStatus.classList.add("show")}}};
 
+const MODAL_LICENSE_TEXT={
+  it:["Richiedi il beat","Definisci licenza e prezzo","Consegna personale dopo il pagamento"],
+  en:["Request the beat","Discuss license & price","Personal delivery after payment"],
+  es:["Solicita el beat","Define la licencia y el precio","Entrega personal después del pago"],
+  fr:["Demande le beat","Définis la licence et le prix","Livraison personnelle après paiement"],
+  de:["Beat anfragen","Lizenz & Preis besprechen","Persönliche Lieferung nach Zahlung"],
+  pt:["Solicita o beat","Define a licença e o preço","Entrega pessoal após o pagamento"],
+  zh:["申请节拍","协商授权与价格","付款后个人交付"],
+  ja:["ビートをリクエスト","ライセンスと価格を相談","支払い後に直接納品"],
+  ko:["비트 요청","라이선스 및 가격 상담","결제 후 직접 전달"],
+  ar:["اطلب الإيقاع","ناقش الترخيص والسعر","التسليم الشخصي بعد الدفع"]
+};
+
 function applyLanguage(){
   const lang=currentLang, rtl=lang==='ar';
   document.documentElement.lang=lang; document.documentElement.dir=rtl?'rtl':'ltr';
@@ -207,7 +220,7 @@ function applyLanguage(){
   q('#form button',t('send')+' →');q('#form small',t('mailNote'));const msg=document.querySelector('#message');if(msg)msg.placeholder=t('messagePh');
   const bs=document.querySelector('#beat');if(bs){bs.options[0].textContent=t('selectBeat');[...bs.options].slice(1).forEach(o=>{const b=BEATS.find(x=>x.id===o.value);if(b)o.textContent=`${b.name} — ${gl(b.genre)} · ${b.bpm} BPM`})}
   const ft=document.querySelector('footer div:first-child span');if(ft)ft.textContent=t('footer');
-  q('.beat-modal .eyebrow',t('details'));q('#modal-player-label',t('play'));q('.modal-license-title',t('modalLicense'));q('#modal-prev',t('modalPrev'));q('#modal-next',t('modalNext'));const mr=document.querySelector('#modal-request');if(mr)mr.innerHTML=`${t("modalReq")} <span>→</span>`;
+  q('.beat-modal .eyebrow',t('details'));q('#modal-player-label',t('play'));q('.modal-license-title',t('modalLicense'));const mlt=MODAL_LICENSE_TEXT[currentLang]||MODAL_LICENSE_TEXT.en;const mls=document.querySelectorAll('.modal-license-grid span');mls.forEach((el,i)=>{if(mlt[i])el.textContent=mlt[i]});q('#modal-prev',t('modalPrev'));q('#modal-next',t('modalNext'));const mr=document.querySelector('#modal-request');if(mr)mr.innerHTML=`${t("modalReq")} <span>→</span>`;
   document.querySelector('#language-select').value=currentLang;
   render();
 }
