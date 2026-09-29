@@ -29,30 +29,555 @@
   },
   {
     "id": "RH005",
-    "name": "PARECE FACIL",
-    "genre": "Reggaeton",
-    "bpm": 94,
-    "mood": "Melodic"
+    "name": "SI ME DICES QUE SI",
+    "genre": "Afrohouse",
+    "bpm": 10,
+    "mood": "Tropical"
   },
   {
     "id": "RH006",
-    "name": "LOCO",
-    "genre": "Dembow",
-    "bpm": 102,
-    "mood": "Club"
+    "name": "NO MIENTAS",
+    "genre": "Afrohouse",
+    "bpm": 10,
+    "mood": "Uplifting"
   },
   {
     "id": "RH007",
-    "name": "DENTRO",
-    "genre": "R&B",
-    "bpm": 72,
-    "mood": "Chill"
+    "name": "OMBRE",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Street"
   },
   {
     "id": "RH008",
-    "name": "RUN IT UP",
-    "genre": "Urban",
+    "name": "NAPOLI",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Street"
+  },
+   {
+    "id": "RH009",
+    "name": "THE WEIGHT OF A WHISPER",
+    "genre": "Ballad",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+   {
+    "id": "RH010",
+    "name": "A DE AMOR",
+    "genre": "Ballad",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+   {
+    "id": "RH011",
+    "name": "RUE",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Hypnotic"
+  },
+   {
+    "id": "RH012",
+    "name": "SOMBRE",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Hypnotic"
+  },
+   {
+    "id": "RH013",
+    "name": "TU CORAZON",
+    "genre": "Afroreggaeton",
+    "bpm": 10,
+    "mood": "Tropical"
+  },
+   {
+    "id": "RH014",
+    "name": "SIN ATADURAS",
+    "genre": "Afroreggaeton",
     "bpm": 100,
-    "mood": "Energetic"
-  }
+    "mood": "Tropical"
+  },
+   {
+    "id": "RH015",
+    "name": "FAVELA",
+    "genre": "Phonk",
+    "bpm": 10,
+    "mood": "Hypnotic"
+  },
+   {
+    "id": "RH016",
+    "name": "DESCE",
+    "genre": "Phonk",
+    "bpm": 10,
+    "mood": "Hard"
+  },
+   {
+    "id": "RH017",
+    "name": "MIDNIGHT",
+    "genre": "Dance Pop",
+    "bpm": 10,
+    "mood": "Atmospheric"
+  },
+   {
+    "id": "RH018",
+    "name": "TROPICAL",
+    "genre": "Merengue",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+   {
+    "id": "RH019",
+    "name": "ME IMAGINO",
+    "genre": "Merengue",
+    "bpm": 10,
+    "mood": "Summer"
+  },
+   {
+    "id": "RH020",
+    "name": "GLOSSY",
+    "genre": "Eurodance",
+    "bpm": 10,
+    "mood": "Club"
+  },
+   {
+    "id": "RH021",
+    "name": "DIGITAL PLUCKS",
+    "genre": "Eurodance",
+    "bpm": 10,
+    "mood": "Club"
+  },
+   {
+    "id": "RH022",
+    "name": "AGRESIVO",
+    "genre": "Trapbow",
+    "bpm": 10,
+    "mood": "Club"
+  },
+   {
+    "id": "RH023",
+    "name": "SIN MIEDO",
+    "genre": "Trapbow",
+    "bpm": 10,
+    "mood": "Club"
+  },
+   {
+    "id": "RH024",
+    "name": "MEDIANOCHE",
+    "genre": "Reggaeton",
+    "bpm": 10,
+    "mood": "Club"
+  },
+   {
+    "id": "RH025",
+    "name": "ESCALOFRIO",
+    "genre": "Reggaeton",
+    "bpm": 10,
+    "mood": "Club"
+  },
+   {
+    "id": "RH026",
+    "name": "CLIP",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Hard"
+  },
+   {
+    "id": "RH027",
+    "name": "DISTRESS",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Hard"
+  },
+   {
+    "id": "RH028",
+    "name": "AGGRESSIVE",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Hard"
+  },
+  {
+    "id": "RH029",
+    "name": "DROPOUTS",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Hard"
+  },
+  {
+    "id": "RH030",
+    "name": "HISTORIAS",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+  {
+    "id": "RH031",
+    "name": "LLAMADA",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+  {
+    "id": "RH032",
+    "name": "METALLIC",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Hard"
+  },
+  {
+    "id": "RH033",
+    "name": "PROTOCOL",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Hard"
+  },
+  {
+    "id": "RH034",
+    "name": "LUCI ROSSE",
+    "genre": "Trapbow",
+    "bpm": 10,
+    "mood": "Club"
+  },
+  {
+    "id": "RH035",
+    "name": "DADA",
+    "genre": "Trapbow",
+    "bpm": 10,
+    "mood": "Club"
+  },
+  {
+    "id": "RH036",
+    "name": "FRIO",
+    "genre": "Trapbow",
+    "bpm": 10,
+    "mood": "Club"
+  },
+  {
+    "id": "RH037",
+    "name": "SIN LIMITES",
+    "genre": "Trapbow",
+    "bpm": 10,
+    "mood": "Club"
+  },
+  {
+    "id": "RH038",
+    "name": "REBULEO",
+    "genre": "Trapbow",
+    "bpm": 10,
+    "mood": "Club"
+  },
+  {
+    "id": "RH039",
+    "name": "MEDELLIN",
+    "genre": "Reggaeton",
+    "bpm": 10,
+    "mood": "Mysterious"
+  },
+  {
+    "id": "RH040",
+    "name": "PRENDIO",
+    "genre": "Reggaeton",
+    "bpm": 10,
+    "mood": "Mysterious"
+  },
+  {
+    "id": "RH041",
+    "name": "PULSE",
+    "genre": "Electropop",
+    "bpm": 10,
+    "mood": "Hard"
+  },
+  {
+    "id": "RH042",
+    "name": "Clock",
+    "genre": "Electropop",
+    "bpm": 10,
+    "mood": "Hard"
+  },
+  {
+    "id": "RH043",
+    "name": "SOY DOMINICANO",
+    "genre": "Trapbow",
+    "bpm": 10,
+    "mood": "Club"
+  },
+  {
+    "id": "RH044",
+    "name": "TE PARTO",
+    "genre": "Dembow",
+    "bpm": 10,
+    "mood": "Club"
+  },
+  {
+    "id": "RH045",
+    "name": "ROMA",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Mysterious"
+  },
+  {
+    "id": "RH046",
+    "name": "CORRI",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Mysterious"
+  },
+  {
+    "id": "RH047",
+    "name": "SOMBRAS",
+    "genre": "Reggaeton",
+    "bpm": 10,
+    "mood": "Dark"
+  },
+  {
+    "id": "RH048",
+    "name": "CALLES",
+    "genre": "Reggaeton",
+    "bpm": 10,
+    "mood": "Dark"
+  },
+  {
+    "id": "RH049",
+    "name": "TU SONRISA",
+    "genre": "Merengue",
+    "bpm": 10,
+    "mood": "Summer"
+  },
+  {
+    "id": "RH050",
+    "name": "SOLO PALABRAS",
+    "genre": "Merengue",
+    "bpm": 10,
+    "mood": "Summer"
+  },
+  {
+    "id": "RH051",
+    "name": "FALSETTO",
+    "genre": "RnB",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+  {
+    "id": "RH052",
+    "name": "SIGNS",
+    "genre": "RnB",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+  {
+    "id": "RH053",
+    "name": "SAO PAULO",
+    "genre": "Funk",
+    "bpm": 10,
+    "mood": "Uplifting"
+  },
+  {
+    "id": "RH054",
+    "name": "OBRIGAO",
+    "genre": "Funk",
+    "bpm": 10,
+    "mood": "Sensual"
+  },
+  {
+    "id": "RH055",
+    "name": "CAISTE",
+    "genre": "Reggaeton",
+    "bpm": 10,
+    "mood": "Club"
+  },
+  {
+    "id": "RH056",
+    "name": "DESVELO",
+    "genre": "Trapbow",
+    "bpm": 10,
+    "mood": "Club"
+  },
+  {
+    "id": "RH057",
+    "name": "SUB",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Hypnotic"
+  },
+  {
+    "id": "RH058",
+    "name": "DREAMS",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Hypnotic"
+  },
+  {
+    "id": "RH059",
+    "name": "BOUNCE",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Hard"
+  },
+  {
+    "id": "RH060",
+    "name": "DARK",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Hard"
+  },
+  {
+    "id": "RH061",
+    "name": "CONFESSION",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Street"
+  },
+  {
+    "id": "RH062",
+    "name": "HIGH",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Street"
+  },
+  {
+    "id": "RH063",
+    "name": "BAILAME ASI",
+    "genre": "Reggaeton",
+    "bpm": 10,
+    "mood": "Summer"
+  },
+  {
+    "id": "RH064",
+    "name": "HEARTBREAK",
+    "genre": "RnB",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+  {
+    "id": "RH065",
+    "name": "IN THE DARK",
+    "genre": "RnB",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+  {
+    "id": "RH066",
+    "name": "PLAYFUL",
+    "genre": "Rap",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+  {
+    "id": "RH067",
+    "name": "GHOST",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Mysterious"
+  },
+  {
+    "id": "RH068",
+    "name": "YOUR EYES",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Sad"
+  },
+  {
+    "id": "RH069",
+    "name": "MY HANDS",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Street"
+  },
+  {
+    "id": "RH070",
+    "name": "THE MOON",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Street"
+  },
+  {
+    "id": "RH071",
+    "name": "FLOW",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Uplifting"
+  },
+  {
+    "id": "RH072",
+    "name": "ME FUI",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+  {
+    "id": "RH073",
+    "name": "DEEP",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+  {
+    "id": "RH074",
+    "name": "MY LYFE",
+    "genre": "Hip Hop",
+    "bpm": 10,
+    "mood": "Uplifting"
+  },
+  {
+    "id": "RH075",
+    "name": "SIN TI",
+    "genre": "RnB",
+    "bpm": 10,
+    "mood": "Mysterious"
+  },
+  {
+    "id": "RH076",
+    "name": "NEVER",
+    "genre": "RnB",
+    "bpm": 10,
+    "mood": "Mysterious"
+  },
+  {
+    "id": "RH077",
+    "name": "NOTHING",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+  {
+    "id": "RH078",
+    "name": "SAD",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Emotional"
+  },
+  {
+    "id": "RH079",
+    "name": "LA NOCHE",
+    "genre": "Trap",
+    "bpm": 10,
+    "mood": "Dark"
+  },
+  {
+    "id": "RH080",
+    "name": "SOLA",
+    "genre": "Reggaeton",
+    "bpm": 10,
+    "mood": "Sensual"
+  },
+  {
+    "id": "RH081",
+    "name": "PEGATE",
+    "genre": "Reggaeton",
+    "bpm": 10,
+    "mood": "Sensual"
+  },
+  {
+    "id": "RH082",
+    "name": "GUAYA",
+    "genre": "Reggaeton",
+    "bpm": 10,
+    "mood": "Sensual"
+  },
+   {
+    "id": "RH083",
+    "name": "BUSCARTE",
+    "genre": "Afroeggaeton",
+    "bpm": 10,
+    "mood": "Summer"
+  },
 ]
