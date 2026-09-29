@@ -1,31 +1,31 @@
 [
   {
     "id": "RH001",
-    "name": "NOCTURNO",
-    "genre": "Dark Trap",
-    "bpm": 98,
-    "mood": "Dark"
+    "name": "CALOR",
+    "genre": "Afroreggaeton",
+    "bpm": X,
+    "mood": "Tropical"
   },
   {
     "id": "RH002",
-    "name": "UNA FOTO",
-    "genre": "Latin",
-    "bpm": 96,
-    "mood": "Romantic"
+    "name": "TUS MENTIRAS",
+    "genre": "Afroreggaeton",
+    "bpm": X,
+    "mood": "Sad"
   },
   {
     "id": "RH003",
-    "name": "ADRENALINE",
-    "genre": "Brazilian Funk",
-    "bpm": 128,
-    "mood": "Energetic"
+    "name": "NIGHT-SMOYARD",
+    "genre": "RnB",
+    "bpm": X,
+    "mood": "Sensual"
   },
   {
     "id": "RH004",
-    "name": "ONE MORE NIGHT",
-    "genre": "Afro House",
-    "bpm": 122,
-    "mood": "Romantic"
+    "name": "ELECTRIC",
+    "genre": "RnB",
+    "bpm": X,
+    "mood": "Sensual"
   },
   {
     "id": "RH005",
